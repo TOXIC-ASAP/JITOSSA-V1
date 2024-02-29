@@ -2,14 +2,12 @@ import { promises } from 'fs'
 import { join } from 'path'
 import { xpRange } from '../lib/levelling.js'
 let tags = {
-  'gpt': 'قائمة AI جديدة',
   'game': 'قسم لألعاب',
-  'قائمة ستيكرز': 'قسم الملصقات',
+  'sticker': 'قسم الملصقات',
   'group': 'قسم الڪࢪوبات',
   'internet': 'البحث في الأنترنت',
   'anime': 'قائمة الأنمي والكرتون',
   'downloader' : 'قسم التحميل',
-  'قسم التحميلات' : 'قسم التحميل',
   'tools': 'قائمة الأدوات',
   'fun': 'قائمة الترفيه',
   'ai': 'الذكاء الإصطناعي',
@@ -165,31 +163,3 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60
   return [h, " H ", m, " M ", s, " S "].map(v => v.toString().padStart(2, 0)).join("")
  }
- 
- function clockStringP(ms) {
-  let ye = isNaN(ms) ? "--" : Math.floor(ms / 31104000000) % 10
-  let mo = isNaN(ms) ? "--" : Math.floor(ms / 2592000000) % 12
-  let d = isNaN(ms) ? "--" : Math.floor(ms / 86400000) % 30
-  let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000) % 24
-  let m = isNaN(ms) ? "--" : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60
-  return [ye, " *Years 🗓️*\n", mo, " *Month 🌙*\n", d, " *Days ☀️*\n", h, " *Hours 🕐*\n", m, " *Minute ⏰*\n", s, " *Second ⏱️*"].map(v => v.toString().padStart(2, 0)).join("")
- }
- 
- function ucapan() {
-  const time = moment.tz("Asia/Kolkata").format("HH")
-  let res = "Good morning ☀️"
-  if (time >= 4) {
-   res = "Good Morning 🌄"
-  }
-  if (time >= 10) {
-   res = "Good Afternoon ☀️"
-  }
-  if (time >= 15) {
-   res = "Good Afternoon 🌇"
-  }
-  if (time >= 18) {
-   res = "Good Night 🌙"
-  }
-  return res
-    }

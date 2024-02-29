@@ -24,7 +24,7 @@ let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
     }
   m.react(done)
   } catch {
-    throw `*هل إسم التطبيق صحيح ؟..*`;
+    throw `_*.apk < إسم التطبيق >*_`;
   }
 };
 

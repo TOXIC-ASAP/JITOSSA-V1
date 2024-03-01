@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import { format } from 'util'
 
 let handler = async (m, { text, conn }) => {
-    if (!/^https?:\/\//.test(text)) throw 'Awali *URL* dengan http:// atau https://'
+    if (!/^https?:\/\//.test(text)) throw 'الأمر خاص باإرسال لوحة HTML خاصة بالموقع الذي تريده قم ياإسرال الرابط هاكذا \n\n.fetch https://youtu.be/LrsNYeLqRAU'
     let _url = new URL(text)
     let url = global.API(_url.origin, _url.pathname, Object.fromEntries(_url.searchParams.entries()), 'APIKEY')
     let res = await fetch(url)
@@ -10,7 +10,7 @@ let handler = async (m, { text, conn }) => {
         // delete res
         throw `Content-Length: ${res.headers.get('content-length')}`
     }
-    if (!/text|json/.test(res.headers.get('content-type'))) return conn.sendFile(m.chat, url, 'file', text, m)
+    if (!/text|json/.test(res.headers.get('content-type'))) return conn.sendFile(m.chat, url, 'file', `تابع صانع البوت فى إنستجرام \n https://www.instagram.com/ovmar_1`, m)
     let txt = await res.buffer()
     try {
         txt = format(JSON.parse(txt + ''))

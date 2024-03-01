@@ -25,7 +25,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   }
 }
 handler.help = ['tts <lang> <task>']
-handler.tags = ['قائمة الأداوات']
+handler.tags = ['tools']
 handler.command = ['tts', 'voz'] 
 
 export default handler

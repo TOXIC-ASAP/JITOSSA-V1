@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 let handler = async (m, { text, command, usedPrefix }) => {
-    if (!text) throw 'Cari apa?'
+    if (!text) throw '.githubsearch MA3LLOMA'
     let res = await fetch(global.API('https://api.github.com', '/search/repositories', {
         q: text
     }))
@@ -10,12 +10,11 @@ let handler = async (m, { text, command, usedPrefix }) => {
         return `
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
-_Dibuat pada *${formatDate(repo.created_at)}*_
-_Terakhir update pada *${formatDate(repo.updated_at)}*_
+_تاريخ الإنشاء *${formatDate(repo.created_at)}*_
 👁  ${repo.watchers}   🍴  ${repo.forks}   ⭐  ${repo.stargazers_count}
 ${repo.open_issues} Issue${repo.description ? `
-*Deskripsi:*\n${repo.description}` : ''}
-*Clone:* \`\`\`$ git clone ${repo.clone_url}\`\`\`
+*وصف الحساب:*\n${repo.description}` : ''}
+*مشروع الوصف::* \`\`\`$ git clone ${repo.clone_url}\`\`\`
 `.trim()
     }).join('\n\n')
     m.reply(str)

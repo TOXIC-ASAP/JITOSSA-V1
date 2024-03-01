@@ -21,7 +21,7 @@ stiker = await mp4ToWebp(img, { pack: packname || global.packname, author: autho
 stiker = await createSticker(false, args[0], '', author, 20)
 } else throw `*RESPOND TO A IMAGE OR VIDEO OR GIF ${usedPrefix + command}*`
 } catch {
-stiker = '*قم بالرد على صورة*'	
+stiker = '*قم بالرد على صورة التي تريد تحويلها إلى ملصق. *'	
 } finally {
 m.reply(stiker)}}
 handler.help = ['s']

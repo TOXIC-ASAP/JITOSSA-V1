@@ -17,7 +17,7 @@ let handler = async (m, { conn, command, args }) => {
     try {
         let ss = await (await fetch(global.API('nrtm', '/api/ssweb', { delay: 1000, url, full }))).arrayBuffer()
         if (/<!DOCTYPE html>/i.test(ss.toBuffer().toString())) throw ''
-        await conn.sendFile(m.chat, ss, 'screenshot.png', url + '\n\n' + msg, m)
+        await conn.sendFile(m.chat, ss, 'screenshot.png', url + '\n\n' + `البحث الخاص بك \n تابع صانع البوت فى إنستجرام \n https://www.instagram.com/ovmar_1`, m)
     } catch (e) {
         m.reply(msg)
     }

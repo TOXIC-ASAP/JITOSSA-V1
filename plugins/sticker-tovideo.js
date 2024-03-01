@@ -1,7 +1,7 @@
 import { webp2mp4 } from '../lib/webp2mp4.js'
 import { ffmpeg } from '../lib/converter.js'
 let handler = async (m, { conn, usedPrefix, command }) => {
-    if (!m.quoted) throw `Balas stiker/audio yang ingin diubah menjadi video dengan perintah ${usedPrefix + command}`
+    if (!m.quoted) throw `قم بالرد على الملصق الذي تريد تحويله الى فيديو {usedPrefix + command}`
     let mime = m.quoted.mimetype || ''
     if (!/webp|audio/.test(mime)) throw `Balas stiker/audio yang ingin diubah menjadi video dengan perintah ${usedPrefix + command}`
     let media = await m.quoted.download()
@@ -17,7 +17,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
             '-shortest'
         ], 'mp3', 'mp4')
     }
-    await conn.sendFile(m.chat, out, 'out.mp4', '*DONE*', m, 0, { thumbnail: out })
+    await conn.sendFile(m.chat, out, 'out.mp4', 'ثم تحويل الملصق الى فيديو \n تابع صانع البوت فى إنستجرام \n https://www.instagram.com/ovmar_1', m, 0, { thumbnail: out })
 }
 handler.help = ['tovideo']
 handler.tags = ['sticker']
